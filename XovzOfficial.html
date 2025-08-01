@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Typing Love Message</title>
+  <style>
+    body {
+      background-color: #fff0f5;
+      font-weight: bold;
+      font-family: 'Fira Code', monospace;
+      color: #ffffff;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    img {
+      text-align: center;
+      border-radius: 50%;
+      margin: 60px;
+      animation: glowProfil 3s infinite;
+    }
+
+    #message-box {
+      background-color: rgba(0,0,0,0.50);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 600px;
+      font-size: 1.5em;
+      margin: 20px auto;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      background-color: #e91e63;
+      animation: blink 0.8s infinite;
+      margin-left: 3px;
+    }
+
+    .marquee {
+      width: 100%;
+      font-family: none;
+      padding: 10px 0;
+      background: rgba(0,0,0,0.70);
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+    }
+
+    .slide-in {
+      opacity: 0;
+      transform: translateX(-200px);
+      animation: masukSamping 1s ease-out forwards;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #e91e63;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      box-shadow: 0 0 10px pink;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff4081;
+    }
+
+    @keyframes masukSamping {
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <marquee behavior="scroll" direction="left" scrollamount="10" class="marquee">
+    Happy girlfriend day Sayangku 💕 maaf yaa kalo web nya jelek🥰
+  </marquee>
+
+  <div class="slide-in">
+    <img src="kucing.jpg" alt="kucing" width="200">
+    
+    <br>
+    <!-- Tombol untuk munculkan teks -->
+    <button onclick="typeText()">Klik untuk baca pesannya sayang 💌</button>
+
+    <div id="message-box">
+      <span id="text"></span><span class="cursor"></span>
+    </div>
+  </div>
+
+<div class="footer">
+  <h1>IndahMyLove</h1>
+</div>
+
+  <script>
+    const message = `Halo sayang Happy girlfriend day sayang ku,aku mau bilang sesuatu sebelum itu akuu mau bilang ini dulu 
+Kamu jangan cuek yaa heheh
+
+Sayang makasih yaa udah mau nerima akuuuu
+Akuu beruntung banget punya kamuu,
+Makasihhhhh juga udah bikin aku seneng,
+Maaf yaaa kalo suka bikin kamu ngambek,
+Maaf juga yaaa sayang kalo akuu ngambek enggak jelass tiba-tiba heheheh,
+Maaf enggak bisa ngasih kamu coklat soalnya rumah kita jauh kalo deket udah aku kasih 10🤧😝 hehehe,kalo aku banyak salahh samaaa kamuu Maaf yaaaa heheheheh,sekali lagi maaf yaaaaa, akuu beruntung punya kamuuu  makasih sayanggggggg 🤍🤍🤍🤍🫣,
+Udah segitu ajaaa yaaa sayangggggg🫣🤍🥰🌷❤️😍`;
+
+    let i = 0;
+    let typingStarted = false;
+
+    function typeText() {
+      if (typingStarted) return; // agar tidak double klik
+      typingStarted = true;
+
+      function typing() {
+        if (i < message.length) {
+          document.getElementById("text").innerHTML += message.charAt(i);
+          i++;
+          setTimeout(typing, 80);
+        }
+      }
+
+      typing();
+    }
+  </script>
+</body>
+</html>
